@@ -34,7 +34,16 @@ class App extends Component {
     this.setState({ counters: newCounters });
   };
 
+  handleDecrement = counter => {
+    const newCounters = [...this.state.counters];
+    const indexOfUpdatedItem = newCounters.indexOf(counter);
+    newCounters[indexOfUpdatedItem] = { ...counter };
+    newCounters[indexOfUpdatedItem].value--;
+    this.setState({ counters: newCounters });
+  };
+
   render() {
+    console.log("App has been rendered");
     return (
       <React.Fragment>
         <NavBar
@@ -45,6 +54,7 @@ class App extends Component {
             counters={this.state.counters}
             onReset={this.handleReset}
             onIncrement={this.handleIncrement}
+            onDecrement={this.handleDecrement}
             onDelete={this.handleDelete}
           />
         </main>
