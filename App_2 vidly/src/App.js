@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Route, Switch, Redirect, BrowserRouter } from "react-router-dom";
+import RegisterForm from "./components/registerForm";
 import LoginForm from "./components/loginForm";
 import Movies from "./components/movies";
 import Customers from "./components/customers";
@@ -17,9 +18,11 @@ class App extends Component {
           <NavBar />
           <div className="container">
             <Switch>
+              <Route path="/register" component={RegisterForm} />
               <Route path="/login" component={LoginForm} />
               <Route path="/rentals" component={Rentals} />
               <Route path="/customers" component={Customers} />
+              {/* <Route path="/movies/new" exact component={MovieForm} /> */}
               <Route path="/movies/:id" component={MovieForm} />
               <Route path="/movies" component={Movies} />
               <Route path="/not-found" component={NotFound} />
